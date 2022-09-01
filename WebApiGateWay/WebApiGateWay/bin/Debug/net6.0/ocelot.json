@@ -1,0 +1,24 @@
+﻿{
+  "Routes": [
+    {
+     // "https": null, //localhost:7152/WeatherForecast
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamScheme": "https",
+      "DownStreamHttpmethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7152"
+        }
+      ],
+      "UpstreamPathTemplate": "/WeatherForecast/GetWeatherForecast",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7133/"
+  }
+}

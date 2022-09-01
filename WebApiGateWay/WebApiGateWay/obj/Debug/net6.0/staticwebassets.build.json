@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qDSBHn6LvRyxOXLgp8hUg4hb3AT1pf3vzsJM1TC5keA=",
+  "Source": "WebApiGateWay",
+  "BasePath": "_content/WebApiGateWay",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
