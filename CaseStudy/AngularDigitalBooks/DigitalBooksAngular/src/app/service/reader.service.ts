@@ -8,7 +8,7 @@ import { Book } from '../models/readermodel';
 })
 export class ReaderService {
 
-  baseUrl = 'https://localhost:7149/api/Books';
+  baseUrl = 'https://localhost:44349/api/Books';
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +16,11 @@ export class ReaderService {
   getAllBooks():Observable<Book[]>{
       return this.http.get<Book[]>(this.baseUrl);
   }
-
+   //search books by details
+   searchBooks(Bname:string,Author:string,Publisher:string,publishedDate:string):Observable<Book[]>{
+    return this.http.get<Book[]>(this.baseUrl +'/SerachBook?BName='+Bname+'&Author='+Author+'&Publisher='+Publisher+'&publishedDate='+publishedDate);
+   
+  }
 }
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/readermodel';
+import { User } from '../models/usermodel';
 import {ReaderService} from '../service/reader.service';
 @Component({
   selector: 'app-reader',
@@ -8,21 +9,32 @@ import {ReaderService} from '../service/reader.service';
 })
 export class ReaderComponent implements OnInit {
   title = 'Search Books';
+  
+  users:User[]=[];
+  user:User={
+    userId:'',
+    userName:'',
+    emailId:'',
+    firstName:'',
+    lastName:'',
+    userpassword:'',
+    roleId:'',
+    active:true
+  }
   books:Book[] = [];
   book : Book = {
-    bookId: 0,
+    bookId: '',
     bookName :'',
     publisher:'',
     publishedDate:'',
-    price:''
+    price:'',
+    UserModel:this.user
   }
-
   constructor(private booksService : ReaderService
 ){
   }
 
   ngOnInit(): void {
-    this.getAllBooks();
   }
 
   getAllBooks() {
@@ -30,5 +42,15 @@ export class ReaderComponent implements OnInit {
     .subscribe(
       response => { this.books = response}
     );
+  }
+
+  onSubmit()
+    {
+      this.searchBook(this.book);
+    }
+  searchBook(book: Book)
+  {
+    this.booksService.searchBooks(book.bookName,book.UserModel.userName,book.publisher,book.publishedDate).subscribe(
+      response => { this.books = response});
   }
 }
