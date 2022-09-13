@@ -1,0 +1,31 @@
+<br><br><br>
+<div class=" books-container">
+    <div class=" books-form">
+      <form #form="ngForm"  (ngSubmit)="onSubmit() " >
+       
+        <div class="form-group">
+         <th> <label for="">Emailid</label>
+        &nbsp;
+          <input type="text" name="emailid" [(ngModel)]='purchases.emailid' />
+        </th>
+        </div>
+        <br>
+          <br>
+          <div class="form-group">
+          <div>
+          <th>
+            <label for="">PaymentMode</label>  &nbsp;
+            <input type="text" name="PaymentMode" [(ngModel)]='purchases.paymentMode' /></th>
+          </div>    <br>
+
+
+
+
+          <div class="form-group">
+           
+          <th>
+            <button (onclick)="onSubmit()">purchase</button></th><br>
+
+
+
+           </div>
